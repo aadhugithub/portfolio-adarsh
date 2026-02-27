@@ -48,14 +48,7 @@ const RecruiterView = () => {
                 </section>
             </div>
 
-            <div className={styles.actions}>
-                <a href={resumePdf} download="Adarsh_N_Resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-                    Download Resume
-                </a>
-                <a href="tel:+919539372035" className={styles.secondaryBtn}>
-                    Call Me
-                </a>
-            </div>
+
         </div>
     );
 };

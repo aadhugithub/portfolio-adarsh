@@ -98,9 +98,27 @@ const WorkView = () => {
                     <h4>Tools</h4>
                     <ul>
                         <li>Figma</li>
+                        <li>XD</li>
+                        <li>Illustrator</li>
+                        <li>Photoshop</li>
                         <li>Framer</li>
-                        <li>Notion</li>
-                        <li>Adobe Suite</li>
+                    </ul>
+                </div>
+
+                <div className={styles.skillBlock}>
+                    <h4>AI Tools</h4>
+                    <ul>
+                        <li>Uizard</li>
+                        <li>Stitch</li>
+                        <li>Midjourney</li>
+                        <li>Adobe Firefly</li>
+                        <li>VEO</li>
+                        <li>Antigravity</li>
+                        <li>Cursor IDE</li>
+                        <li>ChatGPT (Pro / Enterprise)</li>
+                        <li>Claude</li>
+                        <li>FigJam AI</li>
+                        <li>Figma Make</li>
                     </ul>
                 </div>
 

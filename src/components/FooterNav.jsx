@@ -47,6 +47,7 @@ const FooterNav = () => {
             label: 'Accessibility',
             onClick: () => setA11yOpen(!a11yOpen),
         },
+        { isDivider: true },
         {
             icon: <Mail size={20} />,
             label: 'Email',

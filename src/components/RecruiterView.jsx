@@ -1,4 +1,5 @@
 import styles from './RecruiterView.module.css';
+import resumePdf from '../assets/Adarsh N - Resume.pdf';
 
 const RecruiterView = () => {
     return (
@@ -48,7 +49,7 @@ const RecruiterView = () => {
             </div>
 
             <div className={styles.actions}>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+                <a href={resumePdf} download="Adarsh_N_Resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
                     Download Resume
                 </a>
                 <a href="tel:+919539372035" className={styles.secondaryBtn}>

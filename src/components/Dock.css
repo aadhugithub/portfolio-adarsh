@@ -166,3 +166,18 @@
     background-color: #ffffff;
     color: #333333;
 }
+
+@media (max-width: 600px) {
+    .dock-resume-text {
+        display: none;
+    }
+    .dock-resume-btn-container .inner-content {
+        padding: 0 1rem;
+    }
+    .dock-outer {
+        bottom: 1rem;
+    }
+    .dock-panel {
+        padding-bottom: 8px;
+    }
+}

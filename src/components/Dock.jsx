@@ -150,7 +150,7 @@ export default function Dock({
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
-                <span>Resume</span>
+                <span className="dock-resume-text">Resume</span>
             </StarBorder>
         </motion.div>
     );

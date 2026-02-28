@@ -22,6 +22,14 @@ const FooterNav = () => {
     const { theme, toggleTheme } = useTheme();
     const [a11yOpen, setA11yOpen] = useState(false);
     const panelRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 640);
+        handleResize(); // Check initially
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Close panel on outside click
     useEffect(() => {
@@ -72,7 +80,12 @@ const FooterNav = () => {
                     <AccessibilityPanel onClose={() => setA11yOpen(false)} />
                 )}
             </div>
-            <Dock items={dockItems} panelHeight={68} baseItemSize={50} magnification={70} />
+            <Dock
+                items={dockItems}
+                panelHeight={isMobile ? 56 : 68}
+                baseItemSize={isMobile ? 40 : 50}
+                magnification={isMobile ? 45 : 70}
+            />
         </>
     );
 };

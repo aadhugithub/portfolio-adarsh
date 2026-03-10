@@ -1,0 +1,183 @@
+.dock-outer {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.dock-panel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    padding-bottom: 9px;
+    /* center the 50px items vertically in 68px panel */
+    border-radius: 9999px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    pointer-events: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.dock-divider {
+    width: 2px;
+    height: 32px;
+    background-color: var(--border-color);
+    margin: 0 4px;
+    margin-bottom: 9px;
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .dock-panel {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: rgba(10, 10, 10, 0.8);
+}
+
+.dock-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    background-color: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s, border-color 0.2s;
+    will-change: width, height, transform;
+}
+
+.dock-item:hover,
+.dock-item:focus-visible {
+    background-color: var(--interactive-ghost-hover);
+    border-color: var(--border-color);
+}
+
+.dock-item:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+}
+
+.dock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.dock-item:hover .dock-icon,
+.dock-item:focus-visible .dock-icon {
+    color: var(--text-primary);
+}
+
+.dock-label {
+    position: absolute;
+    top: -42px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+[data-theme="dark"] .dock-label {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dock-resume-btn-container {
+    cursor: pointer;
+    text-decoration: none;
+    pointer-events: auto;
+    border-radius: 9999px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dock-resume-btn-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 102, 255, 0.2);
+}
+
+.dock-resume-btn-container:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: 2px;
+}
+
+.dock-resume-btn-container .inner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1.25rem;
+    color: var(--bg-primary);
+    background-color: var(--text-primary);
+    /* Uses theme text color (near black in light mode, near white in dark mode), let's invert this! Wait, user wants white bg. */
+}
+
+/* User wants white bg and don't use black! */
+.dock-resume-btn-container .inner-content {
+    background-color: #ffffff;
+    /* White bg! */
+    color: #333333;
+    /* Dark gray, avoiding pure black as requested */
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.dock-resume-icon {
+    color: #555555;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.dock-resume-btn-container:hover .dock-resume-icon,
+.dock-resume-btn-container:focus-visible .dock-resume-icon {
+    color: #333333;
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .dock-resume-btn-container {
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+}
+
+[data-theme="dark"] .dock-resume-btn-container .inner-content {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+@media (max-width: 600px) {
+    .dock-resume-text {
+        display: none;
+    }
+    .dock-resume-btn-container .inner-content {
+        padding: 0 1rem;
+    }
+    .dock-outer {
+        bottom: 1rem;
+    }
+    .dock-panel {
+        padding-bottom: 8px;
+    }
+}

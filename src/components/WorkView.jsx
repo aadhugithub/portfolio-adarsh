@@ -40,7 +40,7 @@ const projects = [
 
 const WorkView = () => {
     return (
-        <div className={styles.container}>
+        <div id="work-projects" className={styles.container}>
             <header className={styles.header}>
                 <h2 className={styles.title}>Work</h2>
                 <p className={styles.subtitle}>A collection of platforms and products I've designed.</p>

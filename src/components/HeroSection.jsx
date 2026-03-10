@@ -17,7 +17,14 @@ const HeroSection = () => {
                     </div>
 
                     <div className={styles.actions}>
-                        <a href="#work" className={styles.primaryCta}>
+                        <a
+                            href="#work-projects"
+                            className={styles.primaryCta}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('work-projects')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                        >
                             View Work <ArrowDownRight size={18} />
                         </a>
                         <a href="tel:+919539372035" className={styles.secondaryCta}>

@@ -4,6 +4,24 @@
     gap: var(--spacing-16);
 }
 
+.header {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: var(--text-2xl);
+    font-weight: 500;
+    margin-bottom: var(--spacing-2);
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: var(--text-lg);
+    margin: 0;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

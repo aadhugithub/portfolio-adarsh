@@ -35,20 +35,16 @@ const projects = [
         link: 'https://www.notion.so/EZ-migrate-Application-2de47fc3ab638072a001f63df911e35d?source=copy_link',
         summary: 'A scalable LMS for higher education institutions to manage coursework.',
         contribution: 'Designed structured user journeys and platform workflows aligned with institutional requirements and accessibility needs.'
-    },
-    {
-        id: 'donation-app',
-        name: 'Grace',
-        company: 'Tatos Technologies',
-        link: 'https://www.notion.so/GRACE-Donation-App-UX-Dashboard-2024-2de47fc3ab6380559947d33d03bd2fde?source=copy_link',
-        summary: 'A micro-donation platform increasing retention through transparent tracking.',
-        contribution: 'Built the product experience from concept to prototype, aligning user flows with donation logic and retention goals.'
     }
 ];
 
 const WorkView = () => {
     return (
         <div className={styles.container}>
+            <header className={styles.header}>
+                <h2 className={styles.title}>Work</h2>
+                <p className={styles.subtitle}>A collection of platforms and products I've designed.</p>
+            </header>
             <div className={styles.grid}>
                 {projects.map((p) => (
                     <article

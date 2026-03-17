@@ -5,8 +5,8 @@ const RecruiterView = () => {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h2 className={styles.title}>Why hire me?</h2>
-                <p className={styles.subtitle}>A brief overview of my value proposition for recruiters scanning quickly.</p>
+                <h2 className={styles.title}>My Approach</h2>
+                <p className={styles.subtitle}>How I think about product design.</p>
             </header>
 
             <div className={styles.grid}>

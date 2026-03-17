@@ -27,9 +27,6 @@ const HeroSection = () => {
                         >
                             View Work <ArrowDownRight size={18} />
                         </a>
-                        <a href="tel:+919539372035" className={styles.secondaryCta}>
-                            Call Me
-                        </a>
                     </div>
                 </div>
             </div>

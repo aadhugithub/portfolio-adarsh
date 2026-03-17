@@ -7,7 +7,6 @@ const projects = [
         name: 'Sentrah Product',
         company: 'Fieldiva',
         link: 'https://www.notion.so/Fieldiva-Field-Operations-Management-Platform-6b6410161472494ba46dcdf457bc8e47?source=copy_link',
-        recommended: true,
         summary: 'A unified platform for managing remote logistics and ground teams.',
         contribution: 'Led end-to-end UX design, translating business requirements into scalable workflows and system architecture.'
     },
@@ -60,7 +59,7 @@ const WorkView = () => {
                                 )}
                             </div>
                             <button className={styles.notionButton}>
-                                {p.buttonText || 'Open notion'} <ExternalLink className={styles.notionIcon} />
+                                {p.buttonText || 'View Case Study'} <ExternalLink className={styles.notionIcon} />
                             </button>
                         </div>
                         <p className={styles.projectSummary}>{p.summary}</p>
@@ -104,17 +103,11 @@ const WorkView = () => {
                 <div className={styles.skillBlock}>
                     <h4>AI Tools</h4>
                     <ul>
-                        <li>Uizard</li>
-                        <li>Stitch</li>
-                        <li>Midjourney</li>
-                        <li>Adobe Firefly</li>
-                        <li>VEO</li>
-                        <li>Antigravity</li>
-                        <li>Cursor IDE</li>
-                        <li>ChatGPT (Pro / Enterprise)</li>
-                        <li>Claude</li>
-                        <li>FigJam AI</li>
                         <li>Figma Make</li>
+                        <li>Midjourney</li>
+                        <li>Uizard</li>
+                        <li>ChatGPT</li>
+                        <li>Claude</li>
                     </ul>
                 </div>
 

@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import styles from './WorkView.module.css';
 
 const projects = [
@@ -6,75 +8,107 @@ const projects = [
         id: 'field-ops',
         name: 'Sentrah Product',
         company: 'Fieldiva',
-        link: 'https://www.notion.so/Fieldiva-Field-Operations-Management-Platform-6b6410161472494ba46dcdf457bc8e47?source=copy_link',
+        link: '/case-study/field-ops',
         summary: 'A unified platform for managing remote logistics and ground teams.',
-        contribution: 'Led end-to-end UX design, translating business requirements into scalable workflows and system architecture.'
+        contribution: 'Led end-to-end UX design, translating business requirements into scalable workflows and system architecture.',
+        userflow: [
+            'https://res.cloudinary.com/dfdz6qydi/image/upload/w_2000,q_auto,f_auto/v1775491638/Sentrah_dashboard_c21nzm.png',
+            'https://res.cloudinary.com/dfdz6qydi/image/upload/w_2000,q_auto,f_auto/v1775491640/Client_flow_bqum8g.png'
+        ]
     },
     {
         id: 'rent-pay',
         name: 'Zuperent',
         company: 'Fieldiva',
-        link: 'https://www.notion.so/ZuperRent-Rental-Payment-Management-Platform-b6cb472d00a54c70a145e50a832af8a3?source=copy_link',
-        summary: 'A streamlined tool for tenants and landlords to track recurring payments.',
-        contribution: 'Designed payment workflows and notification systems based on business rules and recurring transaction models.'
-    },
-    {
-        id: 'product-website',
-        name: 'Sentrah',
-        company: 'Fieldiva',
-        buttonText: 'Live',
-        link: 'https://www.sentrah.com',
-        summary: 'A high-conversion marketing site for a B2B SaaS startup.',
-        contribution: 'Designed the end-to-end website experience, translating product capabilities into clear SaaS messaging and structured information architecture aligned with business goals.'
+        link: '/case-study/rent-pay',
+        summary: 'A rental and property management platform designed to simplify rent payments, subscriptions, and financial visibility.',
+        contribution: 'Designed end-to-end dashboard and mobile workflows for payments, subscriptions, and reward systems.'
     },
     {
         id: 'edu-platform',
         name: 'EZ Migrate',
         company: 'Tatos Technologies',
-        link: 'https://www.notion.so/EZ-migrate-Application-2de47fc3ab638072a001f63df911e35d?source=copy_link',
-        summary: 'A scalable LMS for higher education institutions to manage coursework.',
-        contribution: 'Designed structured user journeys and platform workflows aligned with institutional requirements and accessibility needs.'
+        link: '/case-study/edu-platform',
+        summary: 'A cross-platform exam-prep product for students preparing for study abroad and professional licensing exams.',
+        contribution: 'Led end-to-end UX design focused on creating realistic exam simulation, structured learning, and scalable architecture.'
     }
 ];
 
 const WorkView = () => {
+    const navigate = useNavigate();
+    const [activeTab, setActiveTab] = useState('uiux');
+
+    const handleProjectClick = (link) => {
+        if (link.startsWith('http')) {
+            window.open(link, '_blank', 'noopener,noreferrer');
+        } else {
+            navigate(link);
+            window.scrollTo(0, 0);
+        }
+    };
+
+    const tabs = [
+        { id: 'uiux', label: 'UI UX' },
+        { id: 'aiagent', label: 'AI Agent' }
+    ];
+
     return (
         <div id="work-projects" className={styles.container}>
             <header className={styles.header}>
                 <h2 className={styles.title}>Work</h2>
                 <p className={styles.subtitle}>A collection of platforms and products I've designed.</p>
             </header>
-            <div className={styles.grid}>
-                {projects.map((p) => (
-                    <article
-                        key={p.id}
-                        className={styles.projectCard}
-                        onClick={() => window.open(p.link, '_blank', 'noopener,noreferrer')}
+
+            <nav className={styles.tabsContainer}>
+                {tabs.map(tab => (
+                    <button
+                        key={tab.id}
+                        className={`${styles.tabButton} ${activeTab === tab.id ? styles.tabButtonActive : ''}`}
+                        onClick={() => setActiveTab(tab.id)}
                     >
-                        <div className={styles.cardHeader}>
-                            <div className={styles.titleWrapper}>
-                                <h3 className={styles.projectName}>{p.name}</h3>
-                                {p.recommended && (
-                                    <span className={styles.recommendedBadge}>Recommended</span>
-                                )}
-                            </div>
-                            <button className={styles.notionButton}>
-                                {p.buttonText || 'View Case Study'} <ExternalLink className={styles.notionIcon} />
-                            </button>
-                        </div>
-                        <p className={styles.projectSummary}>{p.summary}</p>
-                        <div className={styles.meta}>
-                            <div className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Company</span>
-                                <span className={styles.metaValue}>{p.company}</span>
-                            </div>
-                            <div className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Contribution</span>
-                                <span className={styles.metaValue}>{p.contribution}</span>
-                            </div>
-                        </div>
-                    </article>
+                        {tab.label}
+                    </button>
                 ))}
+            </nav>
+
+            <div className={styles.grid}>
+                {activeTab === 'uiux' ? (
+                    projects.map((p) => (
+                        <article
+                            key={p.id}
+                            className={styles.projectCard}
+                            onClick={() => handleProjectClick(p.link)}
+                        >
+                            <div className={styles.cardHeader}>
+                                <div className={styles.titleWrapper}>
+                                    <h3 className={styles.projectName}>{p.name}</h3>
+                                    {p.recommended && (
+                                        <span className={styles.recommendedBadge}>Recommended</span>
+                                    )}
+                                </div>
+                                <button className={styles.notionButton}>
+                                    {p.buttonText || 'View Case Study'} <ExternalLink className={styles.notionIcon} />
+                                </button>
+                            </div>
+                            <p className={styles.projectSummary}>{p.summary}</p>
+                            <div className={styles.meta}>
+                                <div className={styles.metaItem}>
+                                    <span className={styles.metaLabel}>Company</span>
+                                    <span className={styles.metaValue}>{p.company}</span>
+                                </div>
+                                <div className={styles.metaItem}>
+                                    <span className={styles.metaLabel}>Contribution</span>
+                                    <span className={styles.metaValue}>{p.contribution}</span>
+                                </div>
+                            </div>
+                        </article>
+                    ))
+                ) : (
+                    <div className={styles.emptyState}>
+                        <h3>AI Agents</h3>
+                        <p>Something exciting is brewing. Coming soon!</p>
+                    </div>
+                )}
             </div>
 
             <div className={styles.skillsSection}>

@@ -1,10 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
 import HeroSection from './components/HeroSection';
 import StatsSection from './components/StatsSection';
 import TabSection from './components/TabSection';
 import FooterNav from './components/FooterNav';
+import CaseStudy from './pages/CaseStudy';
 import './App.css';
 
-function App() {
+function Home() {
   return (
     <>
       <main className="main-layout">
@@ -14,6 +16,15 @@ function App() {
       </main>
       <FooterNav />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/case-study/:id" element={<CaseStudy />} />
+    </Routes>
   );
 }
 
